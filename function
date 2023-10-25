@@ -1,0 +1,25 @@
+def most_frequent(input_string):
+    # Create an empty dictionary to store the frequency of each letter
+    letter_freq = {}
+
+    # Iterate through each character in the input string
+    for char in input_string:
+        # Ignore non-alphabetic characters
+        if char.isalpha():
+            # Convert the character to lowercase for case-insensitive counting
+            char = char.lower()
+            # Update the frequency count
+            if char in letter_freq:
+                letter_freq[char] += 1
+            else:
+                letter_freq[char] = 1
+
+    # Sort the dictionary by frequency in descending order
+    sorted_freq = sorted(letter_freq.items(), key=lambda x: x[1], reverse=True)
+
+    # Print the letters and their frequencies
+    for item in sorted_freq:
+        print(f"{item[0]} = {item[1]:02d}")
+
+# Example usage:
+most_frequent("Please enter a string Mississippi")
